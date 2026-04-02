@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="关于 - HJ">
+  <div class="bg"></div>
+
+  <div class="container">
+    <div class="nav">
+      <a href="/">首页</a>
+      <a href="/projects">作品集</a>
+      <a href="/about" class="active">关于</a>
+      <a href="/contact">联系</a>
+    </div>
+
+    <div class="page-content">
+      <h2>关于我</h2>
+
+      <div class="about-section">
+        <div class="avatar-container">
+          <img
+            src="https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/01.png"
+            alt="HJ"
+            class="avatar-large"
+          />
+        </div>
+
+        <div class="info">
+          <h3>H J</h3>
+          <p class="title">中山大学学生</p>
+
+          <div class="bio-text">
+            <p>👋 你好！我是一名对设计和技术充满热情的学生。</p>
+            <p>我喜欢探索创造性的解决方案，并致力于将美学与功能完美结合。</p>
+            <p>在中山大学的学习生活中，我不断积累经验，提升自己的专业能力。</p>
+          </div>
+
+          <div class="skills">
+            <h4>技能</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">UI/UX 设计</span>
+              <span class="skill-tag">前端开发</span>
+              <span class="skill-tag">创意设计</span>
+              <span class="skill-tag">项目管理</span>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://bilibili.com/" target="_blank"><i class="fab fa-bilibili"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:xiaoranyu0807@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #333;
+      background: #000;
+      min-height: 100vh;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: url('https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/02.png') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.65);
+      z-index: -1;
+    }
+
+    .container {
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    .page-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3rem;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .about-section {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .avatar-container {
+      flex-shrink: 0;
+    }
+
+    .avatar-large {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .info h3 {
+      font-size: 2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      color: #667eea;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .bio-text {
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .bio-text p {
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      margin-bottom: 2rem;
+    }
+
+    .skills h4 {
+      font-size: 1.1rem;
+      color: #222;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+      color: #667eea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 0.6rem;
+      }
+
+      .nav a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .page-content {
+        padding: 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</Layout>

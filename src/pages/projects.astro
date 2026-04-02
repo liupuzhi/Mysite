@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="作品集 - HJ">
+  <div class="bg"></div>
+
+  <div class="container">
+    <div class="nav">
+      <a href="/">首页</a>
+      <a href="/projects" class="active">作品集</a>
+      <a href="/about">关于</a>
+      <a href="/contact">联系</a>
+    </div>
+
+    <div class="page-content">
+      <h2>我的作品</h2>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="card-header">
+            <h3>项目一</h3>
+            <span class="tag">设计</span>
+          </div>
+          <p class="description">这是一个设计项目的描述，展示了我的设计能力。</p>
+          <div class="card-footer">
+            <span class="date">2024</span>
+            <a href="#" class="view-btn">查看详情</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3>项目二</h3>
+            <span class="tag">开发</span>
+          </div>
+          <p class="description">这是一个开发项目的描述，展示了我的编程能力。</p>
+          <div class="card-footer">
+            <span class="date">2024</span>
+            <a href="#" class="view-btn">查看详情</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3>项目三</h3>
+            <span class="tag">设计</span>
+          </div>
+          <p class="description">这是另一个设计项目的描述。</p>
+          <div class="card-footer">
+            <span class="date">2024</span>
+            <a href="#" class="view-btn">查看详情</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">
+            <h3>项目四</h3>
+            <span class="tag">开发</span>
+          </div>
+          <p class="description">这是另一个开发项目的描述。</p>
+          <div class="card-footer">
+            <span class="date">2024</span>
+            <a href="#" class="view-btn">查看详情</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #333;
+      background: #000;
+      min-height: 100vh;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: url('https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/02.png') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.65);
+      z-index: -1;
+    }
+
+    .container {
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    .page-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3rem;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.8rem;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: #667eea;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .card-header h3 {
+      font-size: 1.4rem;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .tag {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .description {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .date {
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .view-btn {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .view-btn:hover {
+      color: #764ba2;
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 0.6rem;
+      }
+
+      .nav a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .page-content {
+        padding: 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

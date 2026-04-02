@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="HJ的个人主页 - 中山大学学生，设计师与开发者" />
+		<meta name="author" content="HJ" />
+		<title>{Astro.props.title || 'HJ - 个人主页'}</title>
 	</head>
 	<body>
 		<slot />
@@ -19,5 +21,6 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
 	}
 </style>
