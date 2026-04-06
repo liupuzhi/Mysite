@@ -1,26 +1,54 @@
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="HJ的个人主页 - 中山大学学生，设计师与开发者" />
-		<meta name="author" content="HJ" />
-		<title>{Astro.props.title || 'HJ - 个人主页'}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+const { title, description, keywords, url } = Astro.props;
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		overflow-x: hidden;
-	}
-</style>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+  <meta name="author" content="HJ" />
+  <meta name="keywords" content={keywords || "HJ, 个人主页, 设计师, 开发者, 中山大学"} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={url || "https://your-site-url.com/"} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={url || "https://your-site-url.com/"} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+
+  <title>{title}</title>
+</head>
+<body class="">
+  <slot />
+
+  <style>
+    /* 滚动条样式 */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  </style>
+</body>
+</html>
