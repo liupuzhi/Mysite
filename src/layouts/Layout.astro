@@ -1,64 +1,85 @@
 ---
+// 导入主题切换按钮组件
 import ThemeToggle from '../components/ThemeToggle.astro';
+// 从Astro props中解构获取页面属性
 const { title, description, keywords, url } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE html>  <!-- HTML5文档类型声明 -->
+<html lang="zh-CN">  <!-- 设置页面语言为中文 -->
 <head>
+  <!-- 字符编码设置 -->
   <meta charset="UTF-8" />
+  <!-- 视口设置，确保移动端正确显示 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 网站图标（SVG格式） -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- 网站图标（ICO格式，兼容旧浏览器） -->
   <link rel="icon" href="/favicon.ico" />
+  <!-- 生成器元信息，标识使用Astro构建 -->
   <meta name="generator" content={Astro.generator} />
+  <!-- 页面描述元信息，用于SEO -->
   <meta name="description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+  <!-- 作者元信息 -->
   <meta name="author" content="HJ" />
+  <!-- 关键词元信息，用于SEO -->
   <meta name="keywords" content={keywords || "HJ, 个人主页, 设计师, 开发者, 中山大学"} />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={url || "https://hj-portfolio.com/"} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+  <!-- Open Graph / Facebook 社交媒体分享元信息 -->
+  <meta property="og:type" content="website" />  <!-- 内容类型 -->
+  <meta property="og:url" content={url || "https://hj-portfolio.com/"} />  <!-- 页面URL -->
+  <meta property="og:title" content={title} />  <!-- 分享标题 -->
+  <meta property="og:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />  <!-- 分享描述 -->
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={url || "https://hj-portfolio.com/"} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />
+  <!-- Twitter 社交媒体分享元信息 -->
+  <meta property="twitter:card" content="summary_large_image" />  <!-- 卡片类型 -->
+  <meta property="twitter:url" content={url || "https://hj-portfolio.com/"} />  <!-- 页面URL -->
+  <meta property="twitter:title" content={title} />  <!-- 分享标题 -->
+  <meta property="twitter:description" content={description || "HJ的个人主页 - 中山大学学生，设计师与开发者"} />  <!-- 分享描述 -->
 
+  <!-- 页面标题 -->
   <title>{title}</title>
 
-  <!-- 主题初始化脚本，防止闪烁 -->
+  <!-- 主题初始化脚本，防止页面加载时的主题闪烁 -->
+  <!-- is:inline属性使脚本在HTML中内联执行，而非由Astro打包 -->
   <script is:inline>
+    // 从localStorage获取已保存的主题偏好
     const savedTheme = localStorage.getItem('theme');
+    // 检测系统是否偏好深色模式
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // 如果已保存深色主题，或未保存主题但系统偏好深色模式，则应用深色主题
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('dark');  // 在html元素上添加dark类
     }
   </script>
 </head>
-<body class="">
+<body class="">  <!-- 页面主体 -->
+  <!-- 主题切换按钮组件 -->
   <ThemeToggle />
+  <!-- 页面内容插槽，子页面内容将插入此处 -->
   <slot />
 
   <style>
-    /* 滚动条样式 */
+    /* 自定义滚动条样式 */
+    /* 滚动条宽度 */
     ::-webkit-scrollbar {
       width: 8px;
     }
 
+    /* 滚动条轨道背景色 */
     ::-webkit-scrollbar-track {
       background: #f1f1f1;
     }
 
+    /* 滚动条滑块样式 */
     ::-webkit-scrollbar-thumb {
-      background: #c1c1c1;
-      border-radius: 4px;
+      background: #c1c1c1;  /* 滑块颜色 */
+      border-radius: 4px;  /* 圆角 */
     }
 
+    /* 滚动条滑块悬停效果 */
     ::-webkit-scrollbar-thumb:hover {
-      background: #a8a8a8;
+      background: #a8a8a8;  /* 悬停时颜色变深 */
     }
   </style>
 </body>

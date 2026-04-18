@@ -1,10 +1,16 @@
 ---
+// 从Astro props中解构获取当前页面标识
 const { currentPage } = Astro.props;
 ---
 
+<!-- 导航栏容器 -->
 <nav class="nav">
+  <!-- 首页链接，当currentPage为'home'时添加active类 -->
   <a href="/" class={currentPage === 'home' ? 'active' : ''}>首页</a>
+  <!-- 作品集链接，当currentPage为'projects'时添加active类 -->
   <a href="/projects" class={currentPage === 'projects' ? 'active' : ''}>作品集</a>
+  <!-- 关于页面链接，当currentPage为'about'时添加active类 -->
   <a href="/about" class={currentPage === 'about' ? 'active' : ''}>关于</a>
+  <!-- 联系页面链接，当currentPage为'contact'时添加active类 -->
   <a href="/contact" class={currentPage === 'contact' ? 'active' : ''}>联系</a>
 </nav>

@@ -1,77 +1,114 @@
 ---
+// 导入布局组件
 import Layout from '../layouts/Layout.astro';
+// 导入导航组件
 import Navigation from '../components/Navigation.astro';
+// 导入社交图标组件
 import SocialIcon from '../components/SocialIcon.astro';
+// 导入全局样式
 import '../styles/global.css';
 ---
 
+<!-- 联系页面布局 -->
 <Layout title="联系 - HJ">
+  <!-- 背景图层 -->
   <div class="bg"></div>
 
+  <!-- 主容器 -->
   <div class="container mx-auto px-4 py-8">
+    <!-- 导航栏，设置当前页面为contact -->
     <Navigation currentPage="contact" />
 
+    <!-- 页面内容区域 -->
     <div class="page-content max-w-4xl mx-auto">
+      <!-- 页面标题 -->
       <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">联系我</h2>
 
+      <!-- 联系信息区域 -->
       <div class="contact-info text-center">
+        <!-- 提示文本 -->
         <p class="text-center text-gray-600 text-xl mb-10">📬 欢迎通过以下方式与我取得联系：</p>
 
+        <!-- 联系方式卡片网格 -->
         <div class="contact-cards grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <!-- 邮箱卡片 -->
           <div class="contact-card bg-white p-8 rounded-2xl text-center border-2 border-gray-200 transition-all duration-300 hover:border-blue-300 hover:shadow-lg">
+            <!-- 图标容器 -->
             <div class="card-icon w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center">
+              <!-- 邮箱图标SVG -->
               <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 4L12 13L2 4"/>
+                <rect x="2" y="4" width="20" height="16" rx="2"/>  <!-- 信封外框 -->
+                <path d="M22 4L12 13L2 4"/>  <!-- 信封盖子 -->
               </svg>
             </div>
+            <!-- 卡片标题 -->
             <h3 class="text-xl font-bold text-gray-800 mb-2">邮箱</h3>
+            <!-- 邮箱链接 -->
             <p class="text-gray-600">
               <a href="mailto:xiaoranyu0807@gmail.com" class="text-blue-600 font-medium hover:text-blue-700 transition-colors">xiaoranyu0807@gmail.com</a>
             </p>
           </div>
 
+          <!-- GitHub卡片 -->
           <div class="contact-card bg-white p-8 rounded-2xl text-center border-2 border-gray-200 transition-all duration-300 hover:border-blue-300 hover:shadow-lg">
+            <!-- 图标容器 -->
             <div class="card-icon w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center">
+              <!-- GitHub社交图标组件 -->
               <SocialIcon platform="github" href="https://github.com/" class="text-white hover:text-white" />
             </div>
+            <!-- 卡片标题 -->
             <h3 class="text-xl font-bold text-gray-800 mb-2">GitHub</h3>
+            <!-- GitHub链接 -->
             <p class="text-gray-600">
               <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-medium hover:text-blue-700 transition-colors">github.com/yourname</a>
             </p>
           </div>
 
+          <!-- Bilibili卡片 -->
           <div class="contact-card bg-white p-8 rounded-2xl text-center border-2 border-gray-200 transition-all duration-300 hover:border-blue-300 hover:shadow-lg">
+            <!-- 图标容器 -->
             <div class="card-icon w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center">
+              <!-- Bilibili社交图标组件 -->
               <SocialIcon platform="bilibili" href="https://bilibili.com/" class="text-white hover:text-white" />
             </div>
+            <!-- 卡片标题 -->
             <h3 class="text-xl font-bold text-gray-800 mb-2">Bilibili</h3>
+            <!-- Bilibili链接 -->
             <p class="text-gray-600">
               <a href="https://bilibili.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-medium hover:text-blue-700 transition-colors">bilibili.com/yourname</a>
             </p>
           </div>
         </div>
 
+        <!-- 消息表单区域 -->
         <div class="message pt-8 border-t border-gray-200">
+          <!-- 提示文本 -->
           <p class="text-gray-600 text-lg mb-6">📧 也可以直接在这里给我发送消息：</p>
+          <!-- 联系表单 -->
           <form method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="contact-form max-w-2xl mx-auto" id="contactForm">
+            <!-- 隐藏字段：邮件主题 -->
             <input type="hidden" name="_subject" value="新消息来自HJ的个人主页">
+            <!-- 隐藏字段：防垃圾邮件（honeypot） -->
             <input type="text" name="_gotcha" style="display:none">
+            <!-- 姓名输入组 -->
             <div class="form-group mb-6">
               <label for="name" class="block text-gray-800 font-medium mb-2 text-lg">姓名</label>
               <input type="text" id="name" name="name" placeholder="你的姓名" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-lg font-sans transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
             </div>
 
+            <!-- 邮箱输入组 -->
             <div class="form-group mb-6">
               <label for="email" class="block text-gray-800 font-medium mb-2 text-lg">邮箱</label>
               <input type="email" id="email" name="email" placeholder="你的邮箱" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-lg font-sans transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
             </div>
 
+            <!-- 消息输入组 -->
             <div class="form-group mb-8">
               <label for="message" class="block text-gray-800 font-medium mb-2 text-lg">消息</label>
               <textarea id="message" name="message" rows="5" placeholder="你想说什么..." required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-lg font-sans transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 resize-vertical min-h-[150px]"></textarea>
             </div>
 
+            <!-- 提交按钮 -->
             <button type="submit" class="submit-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-8 py-4 rounded-xl text-lg cursor-pointer transition-all duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg mx-auto block">
               发送消息
             </button>
@@ -81,17 +118,23 @@ import '../styles/global.css';
     </div>
   </div>
 
+  <!-- 表单处理脚本 -->
   <script>
+    // 为联系表单添加提交事件监听器
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
+      e.preventDefault();  // 阻止表单默认提交行为
 
+      // 获取表单数据
       const formData = new FormData(e.target as HTMLFormElement);
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const message = formData.get('message');
+      const name = formData.get('name');  // 获取姓名
+      const email = formData.get('email');  // 获取邮箱
+      const message = formData.get('message');  // 获取消息内容
 
+      // 在控制台输出表单数据（调试用）
       console.log({ name, email, message });
+      // 显示成功提示
       alert('感谢您的消息！我们会尽快回复您。');
+      // 重置表单
       (e.target as HTMLFormElement).reset();
     });
   </script>

@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "extends": "astro/tsconfigs/strict",  // 继承Astro推荐的严格TypeScript配置
+  "include": [".astro/types.d.ts", "**/*"],  // 包含的文件：Astro类型定义和所有文件
+  "exclude": ["dist"]  // 排除的文件：构建输出目录
 }

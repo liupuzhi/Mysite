@@ -6,7 +6,10 @@
       "Bash(git commit -m ':*)",
       "Bash(git push:*)",
       "Bash(npm install:*)",
-      "Bash(taskkill //IM node.exe //F)"
+      "Bash(taskkill //IM node.exe //F)",
+      "Bash(curl -L -o public/avatar.png \"https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/01.png\")",
+      "Bash(curl -L -o public/background.png \"https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/02.png\")",
+      "Bash(curl -L -o public/background-music.mp3 \"https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/surprising_media-romantic-acoustic-guitar-1-433555.mp3\")"
     ]
   }
 }

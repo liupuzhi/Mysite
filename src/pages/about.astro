@@ -1,41 +1,60 @@
 ---
+// 导入布局组件
 import Layout from '../layouts/Layout.astro';
+// 导入导航组件
 import Navigation from '../components/Navigation.astro';
+// 导入社交图标组件
 import SocialIcon from '../components/SocialIcon.astro';
+// 导入全局样式
 import '../styles/global.css';
 ---
 
+<!-- 关于页面布局 -->
 <Layout title="关于 - HJ">
+  <!-- 背景图层 -->
   <div class="bg"></div>
 
+  <!-- 主容器 -->
   <div class="container mx-auto px-4 py-8">
+    <!-- 导航栏，设置当前页面为about -->
     <Navigation currentPage="about" />
 
+    <!-- 页面内容区域 -->
     <div class="page-content max-w-4xl mx-auto">
+      <!-- 页面标题 -->
       <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">关于我</h2>
 
+      <!-- 关于我区域，使用flex布局 -->
       <div class="about-section flex flex-col md:flex-row gap-8 items-center">
+        <!-- 头像容器 -->
         <div class="avatar-container flex-shrink-0">
+          <!-- 头像图片 -->
           <img
-            src="/avatar.png"
-            alt="HJ"
-            class="avatar-large w-52 h-52 rounded-full object-cover border-4 border-white shadow-xl"
-            loading="lazy"
+            src="/avatar.png"  <!-- 头像图片路径 -->
+            alt="HJ"  <!-- 替代文本 -->
+            class="avatar-large w-52 h-52 rounded-full object-cover border-4 border-white shadow-xl"  <!-- 样式：208px宽高，圆形，白色边框，阴影 -->
+            loading="lazy"  <!-- 懒加载 -->
           />
         </div>
 
+        <!-- 个人信息区域 -->
         <div class="info flex-1">
+          <!-- 名字 -->
           <h3 class="text-2xl font-bold text-gray-900 mb-1">H J</h3>
+          <!-- 身份标签 -->
           <p class="title text-blue-600 font-semibold mb-6">中山大学学生</p>
 
+          <!-- 个人简介文本 -->
           <div class="bio-text text-gray-700 leading-relaxed mb-8">
             <p class="mb-4">👋 你好！我是一名对设计和技术充满热情的学生。</p>
             <p class="mb-4">我喜欢探索创造性的解决方案，并致力于将美学与功能完美结合。</p>
             <p class="mb-4">在中山大学的学习生活中，我不断积累经验，提升自己的专业能力。</p>
           </div>
 
+          <!-- 技能标签区域 -->
           <div class="skills mb-8">
             <h4 class="text-lg font-bold text-gray-800 mb-3">技能</h4>
+            <!-- 技能标签列表 -->
             <div class="skill-tags flex flex-wrap gap-2">
               <span class="skill-tag bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-sm font-medium">UI/UX 设计</span>
               <span class="skill-tag bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-sm font-medium">前端开发</span>
@@ -44,10 +63,15 @@ import '../styles/global.css';
             </div>
           </div>
 
+          <!-- 社交媒体链接区域 -->
           <div class="social-links flex space-x-6 pt-4 border-t border-gray-200">
+            <!-- GitHub链接 -->
             <SocialIcon platform="github" href="https://github.com/" size="sm" />
+            <!-- Bilibili链接 -->
             <SocialIcon platform="bilibili" href="https://space.bilibili.com/" size="sm" />
+            <!-- YouTube链接 -->
             <SocialIcon platform="youtube" href="https://www.youtube.com/" size="sm" />
+            <!-- 邮箱链接 -->
             <SocialIcon platform="email" href="mailto:xiaoranyu0807@gmail.com" size="sm" />
           </div>
         </div>

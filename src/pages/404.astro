@@ -1,19 +1,31 @@
 ---
+// 导入布局组件
 import Layout from '../layouts/Layout.astro';
+// 导入导航组件
 import Navigation from '../components/Navigation.astro';
+// 导入全局样式
 import '../styles/global.css';
 ---
 
+<!-- 404错误页面布局 -->
 <Layout title="页面未找到 - HJ">
+  <!-- 背景图层 -->
   <div class="bg"></div>
 
+  <!-- 主容器 -->
   <div class="container mx-auto px-4 py-8">
+    <!-- 导航栏，不设置当前页面 -->
     <Navigation currentPage="" />
 
+    <!-- 页面内容区域 -->
     <div class="page-content max-w-2xl mx-auto text-center py-16">
+      <!-- 404错误码 -->
       <h1 class="text-8xl font-bold text-gray-900 mb-4">404</h1>
+      <!-- 错误标题 -->
       <h2 class="text-2xl font-semibold text-gray-700 mb-6">页面未找到</h2>
+      <!-- 错误描述 -->
       <p class="text-gray-600 mb-8">抱歉，您访问的页面不存在或已被移除。</p>
+      <!-- 返回首页按钮 -->
       <a href="/" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-8 py-3 rounded-xl transition-all duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg">
         返回首页
       </a>
