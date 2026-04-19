@@ -1,116 +1,108 @@
 ---
-// 导入布局组件，用于包裹页面结构
 import Layout from '../layouts/Layout.astro';
-// 导入社交图标组件，用于显示社交媒体链接
+import Navigation from '../components/Navigation.astro';
 import SocialIcon from '../components/SocialIcon.astro';
-// 导入全局样式文件
 import '../styles/global.css';
 ---
 
-<!-- 页面布局组件，设置页面标题 -->
-<Layout title="HJ - 首页">
-  <!-- 背景图层，使用CSS类设置背景图片 -->
+<Layout
+  title="HJ - Home"
+  description="HJ portfolio homepage with profile, social links, and featured directions."
+  url="https://hj-portfolio.com/"
+>
   <div class="bg"></div>
 
-  <!-- 主容器，使用Tailwind CSS进行布局 -->
   <div class="container mx-auto px-4 py-8">
-    <!-- 导航栏组件，传入当前页面标识 -->
     <Navigation currentPage="home" />
 
-    <!-- 页面主要内容区域 -->
-    <div class="page-content flex flex-col justify-center items-center text-center max-w-4xl mx-auto py-12">
-      <!-- 头像图片 -->
+    <div class="page-content flex flex-col items-center justify-center py-12 text-center max-w-4xl mx-auto">
       <img
-        src="/avatar.png"  <!-- 头像图片路径 -->
-        alt="HJ"  <!-- 图片替代文本，用于无障碍访问 -->
-        class="avatar w-48 h-48 rounded-full object-cover border-4 border-white mb-6 shadow-xl"  <!-- Tailwind CSS样式类：宽度高度192px，圆形裁剪，白色边框，阴影效果 -->
-        loading="lazy"  <!-- 懒加载属性，延迟加载图片以提升性能 -->
+        src="/avatar.png"
+        alt="Portrait of HJ"
+        class="avatar w-48 h-48 rounded-full object-cover border-4 border-white mb-6 shadow-xl"
+        loading="lazy"
       />
-      <!-- 主标题，显示名字 -->
-      <h1 class="text-5xl font-bold text-gray-900 mb-2 tracking-tight">H J</h1>
-      <!-- 副标题，显示学校信息 -->
-      <div class="subtitle text-2xl text-gray-600 mb-8">中山大学</div>
 
-      <!-- 个人简介区域 -->
+      <h1 class="text-5xl font-bold text-gray-900 mb-2 tracking-tight">HJ</h1>
+      <div class="subtitle text-2xl text-gray-600 mb-8">Student at Sun Yat-sen University</div>
+
       <div class="bio text-lg leading-relaxed text-gray-700 mb-10 max-w-2xl mx-auto">
-        <p>大家好，我是HJ。</p>
-        <p>欢迎和我交流～</p>
+        <p>I am building experience across design, visual storytelling, and front-end development.</p>
+        <p>This site is a place to collect my projects, background, and the best ways to get in touch.</p>
       </div>
 
-      <!-- 社交媒体链接区域 -->
       <div class="social-links flex space-x-6 mb-8">
-        <!-- GitHub社交图标链接 -->
         <SocialIcon platform="github" href="https://github.com/" />
-        <!-- Bilibili社交图标链接 -->
         <SocialIcon platform="bilibili" href="https://space.bilibili.com/" />
-        <!-- YouTube社交图标链接 -->
         <SocialIcon platform="youtube" href="https://www.youtube.com/" />
-        <!-- 邮箱社交图标链接 -->
         <SocialIcon platform="email" href="mailto:xiaoranyu0807@gmail.com" />
       </div>
     </div>
 
-    <!-- 背景音乐音频元素 -->
-    <audio id="bgMusic" loop>  <!-- loop属性使音乐循环播放 -->
-      <!-- 音频源文件，MP3格式 -->
-      <source src="/background-music.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop>
+      <source src="/background-music.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- 音乐控制按钮 -->
-    <button class="music-control" id="musicBtn" title="播放音乐" aria-label="播放或暂停背景音乐">
-      <!-- 音乐图标SVG -->
-      <svg id="musicIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <!-- 喇叭图标路径 -->
-        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-        <!-- 静音/取消静音斜线 -->
-        <line x1="23" y1="9" x2="17" y2="15"/>
-        <line x1="17" y1="9" x2="23" y2="15"/>
+    <button
+      class="music-control"
+      id="musicBtn"
+      type="button"
+      title="Play background music"
+      aria-label="Play background music"
+    >
+      <svg
+        id="musicIcon"
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M11 5L6 9H2v6h4l5 4V5z" />
+        <line x1="23" y1="9" x2="17" y2="15" />
+        <line x1="17" y1="9" x2="23" y2="15" />
       </svg>
     </button>
   </div>
 
-  <!-- 客户端JavaScript脚本，用于控制音乐播放 -->
   <script>
-    // 获取音频元素，使用类型断言确保类型安全
-    const music = document.getElementById('bgMusic') as HTMLAudioElement | null;
-    // 获取音乐控制按钮元素
+    const music = document.getElementById('bgMusic');
     const btn = document.getElementById('musicBtn');
-    // 获取音乐图标元素
     const icon = document.getElementById('musicIcon');
-    // 播放状态标志，初始为未播放
-    let isPlaying = false;
 
-    // 播放图标SVG路径（喇叭带斜线，表示静音状态）
-    const playIcon = `<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`;
-    // 暂停图标SVG路径（喇叭带竖线，表示播放状态）
-    const pauseIcon = `<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="19" y1="9" x2="19" y2="15"/><line x1="21" y1="9" x2="21" y2="15"/>`;
+    const playIcon =
+      '<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+    const pauseIcon =
+      '<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="19" y1="9" x2="19" y2="15"/><line x1="21" y1="9" x2="21" y2="15"/>';
 
-    // 为按钮添加点击事件监听器
-    btn?.addEventListener('click', () => {
-      if (isPlaying) {
-        // 如果正在播放，则暂停音乐
-        music?.pause();
-        // 更新图标为播放图标
-        if (icon) icon.innerHTML = playIcon;
-        // 更新按钮提示文本
-        btn.setAttribute('title', '播放音乐');
-        // 更新无障碍标签
-        btn.setAttribute('aria-label', '播放背景音乐');
+    const updateMusicState = (isPlaying: boolean) => {
+      if (!btn || !icon) return;
+
+      icon.innerHTML = isPlaying ? pauseIcon : playIcon;
+      btn.setAttribute('title', isPlaying ? 'Pause background music' : 'Play background music');
+      btn.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+    };
+
+    updateMusicState(false);
+
+    btn?.addEventListener('click', async () => {
+      if (!(music instanceof HTMLAudioElement)) return;
+
+      if (music.paused) {
+        try {
+          await music.play();
+          updateMusicState(true);
+        } catch (error) {
+          console.warn('Background music playback was blocked by the browser.', error);
+          updateMusicState(false);
+        }
       } else {
-        // 如果未播放，则播放音乐
-        music?.play().catch(() => {
-          // 捕获自动播放被浏览器阻止的情况
-          console.log('自动播放被阻止，需要用户交互');
-        });
-        // 更新图标为暂停图标
-        if (icon) icon.innerHTML = pauseIcon;
-        // 更新按钮提示文本
-        btn.setAttribute('title', '暂停音乐');
-        // 更新无障碍标签
-        btn.setAttribute('aria-label', '暂停背景音乐');
+        music.pause();
+        updateMusicState(false);
       }
-      // 切换播放状态
-      isPlaying = !isPlaying;
     });
   </script>
 </Layout>

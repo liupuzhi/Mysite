@@ -1,25 +1,25 @@
 {
-  "name": "hj-portfolio",      // 项目名称
-  "type": "module",            // 模块类型：使用ES模块
-  "version": "0.0.1",          // 项目版本号
+  "name": "hj-portfolio",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",        // 启动开发服务器
-    "build": "astro build",    // 构建生产版本
-    "preview": "astro preview", // 预览构建结果
-    "astro": "astro",          // Astro CLI命令
-    "format": "prettier --write .",           // 格式化所有文件
-    "format:check": "prettier --check .",     // 检查文件格式
-    "lint": "astro check"      // 运行Astro类型检查
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "astro check"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",  // Astro站点地图插件
-    "astro": "^5.17.1"             // Astro框架核心
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^5.17.1"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",     // Astro类型检查工具
-    "@astrojs/tailwind": "^6.0.2",  // Astro Tailwind CSS集成
-    "prettier": "^3.8.1",           // 代码格式化工具
-    "prettier-plugin-astro": "^0.14.1",  // Prettier的Astro插件
-    "tailwindcss": "^3.4.19"        // Tailwind CSS框架
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/tailwind": "^6.0.2",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "tailwindcss": "^3.4.19"
   }
 }

@@ -1,56 +1,60 @@
 ---
-// 导入布局组件
 import Layout from '../layouts/Layout.astro';
-// 导入导航组件
 import Navigation from '../components/Navigation.astro';
-// 导入全局样式
 import '../styles/global.css';
 
-// 定义项目数据数组
 const projects = [
-  { title: '项目一', tag: '设计', description: '这是一个设计项目的描述，展示了我的设计能力。', year: '2024' },
-  { title: '项目二', tag: '开发', description: '这是一个开发项目的描述，展示了我的编程能力。', year: '2024' },
-  { title: '项目三', tag: '设计', description: '这是另一个设计项目的描述。', year: '2024' },
-  { title: '项目四', tag: '开发', description: '这是另一个开发项目的描述。', year: '2024' },
+  {
+    title: 'Portfolio Site Refresh',
+    tag: 'Front-end',
+    description: 'A small ongoing effort to improve page structure, visual hierarchy, and site interaction.',
+    year: '2026',
+  },
+  {
+    title: 'Campus Visual Study',
+    tag: 'Design',
+    description: 'A set of layout and poster exercises focused on stronger composition and presentation.',
+    year: '2025',
+  },
+  {
+    title: 'Component Style Experiments',
+    tag: 'UI',
+    description: 'A series of button, card, and navigation explorations with reuse and consistency in mind.',
+    year: '2025',
+  },
+  {
+    title: 'Archive Plan',
+    tag: 'Planning',
+    description: 'An effort to collect scattered exercises and turn them into a more complete body of work.',
+    year: '2024',
+  },
 ];
 ---
 
-<!-- 作品集页面布局 -->
-<Layout title="作品集 - HJ">
-  <!-- 背景图层 -->
+<Layout title="Projects - HJ" description="A snapshot of project directions and recent work.">
   <div class="bg"></div>
 
-  <!-- 主容器 -->
   <div class="container mx-auto px-4 py-8">
-    <!-- 导航栏，设置当前页面为projects -->
     <Navigation currentPage="projects" />
 
-    <!-- 页面内容区域 -->
     <div class="page-content max-w-5xl mx-auto">
-      <!-- 页面标题 -->
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">我的作品</h2>
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Projects</h2>
 
-      <!-- 项目网格布局 -->
       <div class="project-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- 遍历项目数组，生成项目卡片 -->
         {projects.map((project) => (
-          <!-- 项目卡片 -->
           <article class="project-card bg-white rounded-2xl p-8 border-2 border-gray-200 transition-all duration-300 hover:border-blue-300 hover:shadow-lg">
-            <!-- 卡片头部：标题和标签 -->
             <div class="card-header flex justify-between items-center mb-4">
-              <!-- 项目标题 -->
               <h3 class="text-2xl font-bold text-gray-800">{project.title}</h3>
-              <!-- 项目标签 -->
-              <span class="tag bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">{project.tag}</span>
+              <span class="tag bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                {project.tag}
+              </span>
             </div>
-            <!-- 项目描述 -->
+
             <p class="description text-gray-600 leading-relaxed mb-6">{project.description}</p>
-            <!-- 卡片底部：年份和查看链接 -->
+
             <div class="card-footer flex justify-between items-center pt-4 border-t border-gray-200">
-              <!-- 项目年份 -->
               <span class="date text-gray-500 text-sm">{project.year}</span>
-              <!-- 查看详情链接 -->
-              <a href="#" class="view-btn text-blue-600 font-medium hover:text-blue-700 transition-colors">查看详情</a>
+              <span class="view-btn text-blue-600 font-medium">Details coming soon</span>
             </div>
           </article>
         ))}
